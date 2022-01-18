@@ -1,0 +1,517 @@
+* {
+    font-family: 'Gilroy Bold';
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    position: relative;
+}
+
+$mgrey: #F6F6F6;
+$grey: #828282;
+$bgrey: #3b3b3b;
+$black: #070707;
+
+@mixin hover {
+    &:hover {
+        background-color: lighten($grey, 35%);
+        transition: 0.5s ease;
+    }
+}
+
+.wrapper {
+    width: 940px;
+    margin: 0 auto;
+  }
+@media (max-width: 940px) {
+    .wrapper {
+      width: 100%;
+    }
+}
+
+.title {
+    font-size: 34px;
+    line-height: 42px;
+    text-align: center;
+    color: $black;
+}
+
+// ---------------------------------------первая секция-навигация-------------------------------------------
+
+.navigation {
+    padding-top: 10px;
+    z-index: 100;
+    &__list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: #FFFFFF;
+        z-index: inherit;
+        ul {
+            width: 940px;
+            margin: 25px auto;
+            display: flex;
+            justify-content: space-between;
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+            @media (max-width: 980px) {
+                margin-left: 26px;
+                margin-right: 26px;
+            }
+            @media (max-width: 940px) {
+                width: 100%;
+            }
+            li {
+                a {
+                    display: block;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: $grey;
+                    text-decoration: none;
+                    &:hover {
+                        color: $bgrey;
+                    }
+                }
+            }
+        }
+
+        // --------------------------------меню бургер------------------------------------------
+
+        .burger{
+            display: none;
+            position: absolute;
+            right: 40px;
+            top: 80px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: inherit;
+            &.active{
+                position: fixed;
+            }
+          }
+          .burger span, .burger span:before, .burger span:after{
+            width: 33px;
+            position: absolute;
+            height: 4px;
+            background: #333;
+            display: block;
+            transition: .3s;
+            border-radius: 3px;
+            z-index: 999;
+          }
+          .burger span:before{
+            content: "";
+            top: -10px;
+            transition: top 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+          }
+          .burger span{
+            top: 0px;
+          }
+          .burger span:after{
+            content: "";
+            bottom: -10px;
+            transition: bottom 300ms 300ms, transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+          }
+
+
+          .burger.active span:before{
+            content: "";
+            top: 0px;
+            transform: rotate(45deg);
+            transition: top 300ms, transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: $grey;
+          }
+          .burger.active span:after{
+            content: "";
+            bottom: 0;
+            transform: rotate(-45deg);
+            transition: bottom 300ms, transform 300ms 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: $grey;
+          }
+          .burger.active span{
+            background: rgba(255, 255, 255, 0);
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        padding-top: 0;
+        margin: 0 26px;
+        &__list{
+            ul {
+            display: none;
+            position: absolute;
+            margin: 0;
+            top: 66px;
+            left: 26px;
+
+            }
+            .burger{
+                display: block;
+            }
+        }
+    }
+}
+// ------------------------------------первая секция после навигации---------------------------------------
+.main-view {
+    margin-bottom: 110px;
+    @media (max-width: 768px) {
+        padding-top: 0;
+        margin: 65px 26px;
+    }
+    &__description{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-top: 18px;
+        margin-bottom: 50px;
+        @media (max-width: 980px) {
+            margin: 0 26px 50px;
+        }
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 50px 10px 35px;
+        }
+        h1 {
+            width: 124px;
+            font-size: 47.3392px;
+            line-height: 59px;
+            @media (max-width: 768px) {
+                padding-bottom: 20px;
+            }
+        }
+        h3 {
+            font-family: 'Gilroy Medium';
+            font-size: 18px;
+            line-height: 22px;
+            margin: 0;
+            padding-bottom: 11px;
+        }
+        ul {
+            margin: 0;
+            list-style-type: none;
+            transform: rotate(-90deg) translateX(38px) translateY(20px);
+            @media (max-width: 980px) {
+                transform: rotate(-90deg) translateX(15px) translateY(30px);
+                transform-origin: 42% 80%;
+            }
+            @media (max-width: 940px) {
+                transform: rotate(-90deg) translateX(15px) translateY(5px);
+                transform-origin: 42% 80%;
+            }
+            @media (max-width: 768px) {
+                display: none;
+            }
+            li {
+                display: inline-block;
+                a {
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: $grey;
+                    text-decoration: none;
+                    &:hover {
+                        color: $bgrey;
+                    }
+                }
+            }
+        }
+    }
+    &__img{
+        @media (max-width: 400px) {
+            height: 500px;
+            background-image: url(../img/head-img-mini.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    }
+
+// ----------------------------------------первый слайдер--------------------------------------------------
+
+.splide {
+    @media (max-width: 980px) {
+            margin: 0 10px;
+            }
+    @media (max-width: 400px) {
+            display: none;
+            }
+    }
+}
+
+// -----------------------------------------вторая секция---------------------------------------------------
+
+.about {
+    width: 100%;
+    height: 506px;
+    background: $mgrey;
+    padding: 75px 0;
+    h2 {
+        padding-top: 80px;
+    }
+    p {
+        width: 485px;
+        font-family: 'Gilroy Medium';
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        margin: 35px auto 55px;
+        @media (max-width: 500px) {
+            width: 316px;
+        }
+    }
+}
+
+// -----------------------------------------второй слайдер----------------------------------------------------
+
+#slider2 {
+    .splide__pagination {
+        display: none;
+    }
+    .splide__arrow {
+        top: 35%;
+        @media (max-width: 400px) {
+          display: none;
+        }
+      }
+    p {
+        margin: 25px 0 40px;
+        display: block;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #828282;
+        margin-top: 25px;
+    }
+    ul {
+        font-family: 'Gilroy Medium';
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        @media (max-width: 400px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    li {
+        margin-bottom: 110px;
+        @media (max-width: 400px) {
+            margin-bottom: 80px;
+        }
+    }
+}
+
+// ------------------------------------------третья секция-------------------------------------------------
+
+.skills {
+    padding-top: 90px;
+    h2 {
+        margin-top: 0;
+        margin-bottom: 70px;
+    }
+    &__subtitle{
+        font-family: 'Gilroy Medium';
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        margin-bottom: 80px;
+        @media (max-width: 400px) {
+            margin-bottom: 70px;
+        }
+    }
+}
+
+// -------------------------------------------четвёртая секция---------------------------------------------
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $mgrey;
+    h2 {
+        margin: 110px 0 45px;
+        }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            @media (max-width: 940px) {
+                width: 100%;
+            }
+        }
+        a {
+        font-family: 'Gilroy Medium';
+        margin: 45px 0 100px;
+        font-size: 18px;
+        color: $black;
+        }
+    }
+}
+
+// ----------------------------------------------пятая секция-----------------------------------------------
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        margin-bottom: 0px;
+        margin-top: 114px;
+    }
+    &__subtitle{
+        font-family: 'Gilroy Medium';
+        width: 270px;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    &__btn {
+        background-color: $black;
+        color: #ffffff;
+        width: 180px;
+        height: 45px;
+        margin: 30px 0 85px;
+        border: none;
+        border-radius: 30px;
+        @media (max-width: 400px) {
+            width: 315px;
+        }
+        &:hover {
+            background-color: $bgrey;
+            transition: 0.7s ease;
+            cursor: pointer;
+        }
+    }
+    &__soclinks {
+        width: 345px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 45px;
+        @media (max-width: 400px) {
+            justify-content: space-around;
+        }
+    }
+    &__soclinks-linkedin {
+        @include hover();
+        width: 41px;
+        height: 41px;
+        background-image: url(../img/f-linked.svg);
+        border-radius: 15%;
+    }
+    &__soclinks-instagram {
+        @include hover();
+        width: 40.5px;
+        height: 41.5px;
+        background-image: url(../img/f-insta.svg);
+        border-radius: 35%;
+    }
+    &__soclinks-behance {
+        @include hover();
+        width: 41px;
+        height: 40px;
+        background-image: url(../img/f-be.svg);
+        border-radius: 10%;
+    }
+    &__soclinks-dribble {
+        @include hover();
+        width: 39.5px;
+        height: 41px;
+        background-image: url(../img/f-drib.svg);
+        border-radius: 45%;
+    }
+    &__socname {
+        font-family: 'Gilroy Medium';
+        width: 245px;
+        margin: 0 0 120px;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: $grey;
+    }
+}
+
+@media screen and (max-width:375px) {
+.navigation {
+    width: 100%;
+    &__list {
+    display: flex;
+        ul{
+            li{
+            margin-bottom: 70px;
+                a {
+                font-size: 34px;
+                }
+            }
+        }
+    }
+}
+}
+
+// ------------------------------------навигация меню бургер------------------------------------------------
+
+.mobile-nav{
+    position: fixed;
+    min-height: 100vh;
+    min-width: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 100%;
+    transition: left 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 99;
+    ul {
+        margin: 25px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0;
+        min-height: 300px;
+        margin-top: 20px;
+        @media (max-width: 980px) {
+            margin-left: 26px;
+            margin-right: 26px;
+        }
+        @media (max-width: 940px) {
+            width: 100%;
+        }
+        li {
+            width: 250px;
+            a {
+                display: block;
+                font-size: 18px;
+                line-height: 22px;
+                color: $grey;
+                text-decoration: none;
+                padding-top: 50px;
+                font-size: 34px;
+                line-height: 42px;
+                &:hover {
+                    color: $bgrey;
+                }
+            }
+        }
+    }
+    &.active{
+        left: 0;
+        height: 100%;
+    }
+    p {       
+        position: absolute;
+        right: 0;
+        bottom: 150px;
+        transform: rotate(90deg);
+        font-size: 34px;
+        line-height: 42px;
+        color: $grey;
+        cursor: pointer;
+        &:hover {
+            color: $bgrey;
+        }
+    }
+}
