@@ -169,9 +169,6 @@ $black: #070707;
         align-items: flex-end;
         margin-top: 18px;
         margin-bottom: 50px;
-        @media (max-width: 980px) {
-            margin: 0 26px 50px;
-        }
         @media (max-width: 768px) {
             flex-direction: column;
             align-items: flex-start;
@@ -184,6 +181,9 @@ $black: #070707;
             @media (max-width: 768px) {
                 padding-bottom: 20px;
             }
+            @media (min-width: 768px) {
+                transform: translateX(5px);
+            }
         }
         h3 {
             font-family: 'Gilroy Medium';
@@ -191,17 +191,15 @@ $black: #070707;
             line-height: 22px;
             margin: 0;
             padding-bottom: 11px;
-        }
+        } 
         ul {
             margin: 0;
             list-style-type: none;
-            transform: rotate(-90deg) translateX(38px) translateY(20px);
+            transform: rotate(-90deg) translateX(38px) translateY(20px); 
             @media (max-width: 980px) {
-                transform: rotate(-90deg) translateX(15px) translateY(30px);
                 transform-origin: 42% 80%;
             }
             @media (max-width: 940px) {
-                transform: rotate(-90deg) translateX(15px) translateY(5px);
                 transform-origin: 42% 80%;
             }
             @media (max-width: 768px) {
@@ -234,9 +232,6 @@ $black: #070707;
 // ----------------------------------------первый слайдер--------------------------------------------------
 
 .splide {
-    @media (max-width: 980px) {
-            margin: 0 10px;
-            }
     @media (max-width: 400px) {
             display: none;
             }
