@@ -195,7 +195,7 @@ $black: #070707;
         ul {
             margin: 0;
             list-style-type: none;
-            transform: rotate(-90deg) translateX(38px) translateY(20px);
+            transform: rotate(-90deg) translateX(38px) translateY(20px); 
             @media (max-width: 980px) {
                 transform-origin: 42% 80%;
             }
